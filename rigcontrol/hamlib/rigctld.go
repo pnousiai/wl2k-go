@@ -130,7 +130,7 @@ func (r *TCPRig) VFOMode() (bool, error) {
 // Gets the dial frequency for this VFO.
 func (v *tcpVFO) GetFreq() (int, error) {
 	//Printf("Missing address-field for rig '%s', skipping.", int)
-	resp, err := v.cmd(`\get_freq`)
+	resp, err := v.cmd(`f`)
 	if err != nil {
 		return -1, err
 	}
@@ -145,7 +145,7 @@ func (v *tcpVFO) GetFreq() (int, error) {
 
 // Sets the dial frequency for this VFO.
 func (v *tcpVFO) SetFreq(freq int) error {
-	_, err := v.cmd(`\set_freq %d`, freq)
+	_, err := v.cmd(`F %d`, freq)
 	return err
 }
 
@@ -178,7 +178,7 @@ func (v *tcpVFO) SetPTT(on bool) error {
 		bInt = 3
 	}
 
-	_, err := v.cmd(`\set_ptt %d`, bInt)
+	_, err := v.cmd(`T %d`, bInt)
 	return err
 }
 
