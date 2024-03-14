@@ -15,7 +15,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/la5nta/wl2k-go/fbb"
+	"github.com/pnousiai/wl2k-go/fbb"
 )
 
 const (

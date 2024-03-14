@@ -14,7 +14,7 @@ import (
 	"time"
 
 	"github.com/albenik/go-serial/v2"
-	"github.com/la5nta/wl2k-go/fbb"
+	"github.com/pnousiai/wl2k-go/fbb"
 )
 
 // KenwoodConn implements net.Conn using a

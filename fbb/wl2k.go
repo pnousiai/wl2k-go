@@ -20,7 +20,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/la5nta/wl2k-go/transport"
+	"github.com/pnousiai/wl2k-go/transport"
 )
 
 // ErrConnLost is returned by Session.Exchange if the connection is prematurely closed.
@@ -110,7 +110,6 @@ type Session struct {
 // Struct used to hold information that is reported during B2F handshake.
 //
 // Non of the fields must contain a dash (-).
-//
 type UserAgent struct {
 	Name    string
 	Version string

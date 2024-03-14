@@ -13,7 +13,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/la5nta/wl2k-go/transport"
+	"github.com/pnousiai/wl2k-go/transport"
 )
 
 const (

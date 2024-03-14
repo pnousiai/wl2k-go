@@ -16,7 +16,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/la5nta/wl2k-go/transport"
+	"github.com/pnousiai/wl2k-go/transport"
 )
 
 var ErrOffsetLimitExceeded error = errors.New("Protocol does not support offset larger than 6 digits")

@@ -13,7 +13,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/la5nta/wl2k-go/lzhuf"
+	"github.com/pnousiai/wl2k-go/lzhuf"
 )
 
 type PropCode byte
@@ -54,7 +54,6 @@ type Proposal struct {
 // Reads the Winlink Message given and constructs a new proposal
 // based on what's read and prepares for outbound delivery, returning
 // a Proposal with the given data.
-//
 func NewProposal(MID, title string, code PropCode, data []byte) *Proposal {
 	prop := &Proposal{
 		mid:     MID,
@@ -95,7 +94,6 @@ func NewProposal(MID, title string, code PropCode, data []byte) *Proposal {
 //
 // Typically used to check if the whole message was
 // successfully downloaded from the CMS.
-//
 func (p *Proposal) DataIsComplete() bool {
 	return len(p.compressedData) == p.compressedSize
 }
