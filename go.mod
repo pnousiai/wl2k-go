@@ -1,4 +1,4 @@
-module github.com/la5nta/wl2k-go
+module github.com/pnousiai/wl2k-go
 
 go 1.19
 
