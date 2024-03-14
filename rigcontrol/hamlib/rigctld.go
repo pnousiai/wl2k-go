@@ -23,7 +23,7 @@ var ErrNotVFOMode = errors.New("rigctl is not running in VFO mode")
 var ErrUnexpectedValue = fmt.Errorf("Unexpected value in response")
 
 // TCPTimeout defines the timeout duration of dial, read and write operations.
-var TCPTimeout = time.Second
+var TCPTimeout = 20 * time.Second
 
 // Rig represents a receiver or tranceiver.
 //
