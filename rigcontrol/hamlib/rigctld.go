@@ -70,6 +70,7 @@ func (r *TCPRig) dial() (err error) {
 
 	// Dial with 3 second timeout
 	r.tcpConn, err = net.DialTimeout("tcp", r.addr, TCPTimeout)
+	fmt.Printf("Juuri tuli %s", err)
 	if err != nil {
 		return err
 	}
@@ -126,6 +127,7 @@ func (r *TCPRig) VFOMode() (bool, error) {
 
 // Gets the dial frequency for this VFO.
 func (v *tcpVFO) GetFreq() (int, error) {
+	//Printf("Missing address-field for rig '%s', skipping.", int)
 	resp, err := v.cmd(`\get_freq`)
 	if err != nil {
 		return -1, err
