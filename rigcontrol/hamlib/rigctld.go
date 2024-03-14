@@ -69,6 +69,7 @@ func (r *TCPRig) dial() (err error) {
 	}
 
 	// Dial with 3 second timeout
+	fmt.Printf("Koitetaan")
 	r.tcpConn, err = net.DialTimeout("tcp", r.addr, TCPTimeout)
 	fmt.Printf("Juuri tuli %s", err)
 	if err != nil {
