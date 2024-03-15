@@ -58,7 +58,11 @@ func OpenTCP(addr string) (*TCPRig, error) {
 // Ping checks that a connection to rigctld is open and valid.
 //
 // If no connection is active, it will try to establish one.
-func (r *TCPRig) Ping() error { _, err := r.cmd(`dump_caps`); return err }
+func (r *TCPRig) Ping() error {
+	_, err := r.cmd(`dump_caps
+`)
+	return err
+}
 
 func (r *TCPRig) dial() (err error) {
 	r.mu.Lock()
@@ -69,11 +73,10 @@ func (r *TCPRig) dial() (err error) {
 	}
 
 	// Dial with 3 second timeout
-	fmt.Printf("Koitetaan. Osoite:%s. Timeout:%s", r.addr, TCPTimeout)
+
 	r.tcpConn, err = net.DialTimeout("tcp", r.addr, TCPTimeout)
 
 	if err != nil {
-		fmt.Printf("Virhe tuli %s.", err)
 		return err
 	}
 
@@ -120,7 +123,8 @@ func (r *TCPRig) VFOB() (VFO, error) {
 }
 
 func (r *TCPRig) VFOMode() (bool, error) {
-	resp, err := r.cmd(`\chk_vfo`)
+	resp, err := r.cmd(`\chk_vfo
+	`)
 	if err != nil {
 		return false, err
 	}
@@ -148,13 +152,15 @@ func (v *tcpVFO) GetFreq() (int, error) {
 
 // Sets the dial frequency for this VFO.
 func (v *tcpVFO) SetFreq(freq int) error {
-	_, err := v.cmd(`F %d\n`, freq)
+	_, err := v.cmd(`F %d
+	`, freq)
 	return err
 }
 
 // GetPTT returns the PTT state for this VFO.
 func (v *tcpVFO) GetPTT() (bool, error) {
-	resp, err := v.cmd("t")
+	resp, err := v.cmd(`t
+	`)
 	if err != nil {
 		return false, err
 	}
@@ -181,7 +187,8 @@ func (v *tcpVFO) SetPTT(on bool) error {
 		bInt = 3
 	}
 
-	_, err := v.cmd(`T %d`, bInt)
+	_, err := v.cmd(`T %d
+	`, bInt)
 	return err
 }
 
