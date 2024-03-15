@@ -130,7 +130,7 @@ func (r *TCPRig) VFOMode() (bool, error) {
 // Gets the dial frequency for this VFO.
 func (v *tcpVFO) GetFreq() (int, error) {
 	//Printf("Missing address-field for rig '%s', skipping.", int)
-	v.cmd(`\get_powerstat`)
+	v.cmd(`\chk_vfo`)
 	resp, err := v.cmd(`f`)
 	if err != nil {
 		return -1, err
