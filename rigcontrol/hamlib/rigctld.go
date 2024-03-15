@@ -131,6 +131,7 @@ func (r *TCPRig) VFOMode() (bool, error) {
 func (v *tcpVFO) GetFreq() (int, error) {
 	//Printf("Missing address-field for rig '%s', skipping.", int)
 	joo, err := v.cmd(`\get_powerstat`)
+	fmt.Printf("No vittujoo '%s'.", joo)
 	resp, err := v.cmd(`f`)
 	if err != nil {
 		return -1, err
